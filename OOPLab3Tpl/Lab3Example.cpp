@@ -3,65 +3,20 @@
 #endif
 #include <iostream>
 #include <math.h>
+#include <string>
 #if !defined(CODING_VS_CODE)
 	#include <clocale>
 #endif
 using namespace std;
 
-class Icosahedron {
-	double a; // side of the icosahedron
-	unsigned int color;
-public:
-	Icosahedron() : a(1.0), color(0) {}
-	Icosahedron(double ai) : a(ai), color(0) {}
-	Icosahedron(int ic) : a(1.0) { if (ic >= 0) color = ic; else color = 0; }
-	Icosahedron(double a, int c) {
-		this->a = a;
-		if (c >= 0) color = c; else color = 0;
-	}
-	double getA() const
-	{
-		return a;
-	}
-	void setA(double a)
-	{
-		if (a < 0 || a > 1.e+100)
-		{
-			cout << " Error set  a \n";
-			return;
-		}
-		this->a = a;
-	}
-	double getColor() const
-	{
-		return color;
-	}
-	void setColor(int c)
-	{
-		if (c < 0 || c > 10000)
-		{
-			cout << " Error set  color \n";
-			return;
-		}
-		this->color = c;
-	}
-	double S() {
-		return 5 * a * a * sqrt(3.0);
-	}
-	double V() {
-		return 5 * a * a * a * (3 + sqrt(5.0)) / 12.0;
-	}
-	double r() {
-		return a * (3 + sqrt(5.0)) / (4.0 * sqrt(3.0));
-	}
-	double R() {
-		return sqrt(2 * (5 + sqrt(5.0) * a)) / 4.0;
-	}
-	void printInfo()
-	{
-		cout << "\n a= " << a << " color = " << color;
-		cout << "  S= " << S() << " V = " << V() << "  r= " << r() << " V = " << R() << endl;
-	}
+class Date {
+private:
+	int day;
+	int month;
+	int year;
+
+public: 
+	Date(): day(1), month(1), year(2000) {}
 
 };
 int mainExample1()
