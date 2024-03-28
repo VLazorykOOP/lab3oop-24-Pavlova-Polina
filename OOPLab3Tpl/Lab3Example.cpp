@@ -40,12 +40,40 @@ public:
 		}
 		else if (m == 2) {
 			if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
-				return (d<=29)
+				return (d <= 29);
+			}
+			else { 
+				return (d <= 28);
 			}
 		}
-	}	
-		
-};
+		return true;
+	}
+	void setDay(int d) {
+		if (isValidDate(d, month, year)) {
+			day = d;
+		}
+		else {
+			cout<<"Некоректний день.Значення за замовченням.\n"
+		}
+	}
+	void setMonth(int m){
+		if (isValidDate(day, m, year)) {
+			month = m;
+		}
+		else {
+			cout << "Некоректний місяць. Значення за замовченням.\n";
+		}
+		}
+	void setYear(int y) {
+		if (isValidDate(day, month, y)) {
+			year = y;
+		}
+		else {
+			cout << "Некоректний рік. Значення за замовченням.\n";
+		}
+	}
+
+
 int mainExample1()
 {
 	Icosahedron obj;
