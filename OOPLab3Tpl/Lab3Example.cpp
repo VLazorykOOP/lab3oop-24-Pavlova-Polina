@@ -95,28 +95,10 @@ public:
 };
 int mainExample1()
 {
-	Icosahedron obj;
-	obj.printInfo();
-	double in_a; int in_color;
-	cout << " Input side and color Icosahedron  "; cin >> in_a >> in_color;
-	Icosahedron obj1(in_a), obj2(in_color), obj3(in_a, in_color);
-	obj1.printInfo();
-	obj2.printInfo();
-	obj3.printInfo();
-	obj.setA(-5);
-	obj.printInfo();
-	obj.setA(5);
-	obj.printInfo();
-	obj.setA(2.e100);
-	obj.printInfo();
-	obj.setColor(-10);
-	obj.printInfo();
-	obj.setColor(10);
-	obj.printInfo();
-	obj.setColor(10001);
-	obj.printInfo();
-	cout << " End testing \n";
-	return 1;
+	Date date1;
+	date1.printformat1();
+	date1.printformat2();
+
 }
 
 
