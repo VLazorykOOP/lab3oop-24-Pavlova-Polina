@@ -15,8 +15,8 @@ private:
 	int month;
 	int year;
 
-public: 
-	Date(): day(1), month(1), year(2000) {}
+public:
+	Date() : day(1), month(1), year(2000) {}
 
 	Date(int d, int m, int y) {
 		if (isValidDate(d, m, y)) {
@@ -42,7 +42,7 @@ public:
 			if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
 				return (d <= 29);
 			}
-			else { 
+			else {
 				return (d <= 28);
 			}
 		}
@@ -53,17 +53,17 @@ public:
 			day = d;
 		}
 		else {
-			cout<<"Некоректний день.Значення за замовченням.\n"
+			cout << "Некоректний день.Значення за замовченням.\n"
 		}
 	}
-	void setMonth(int m){
+	void setMonth(int m) {
 		if (isValidDate(day, m, year)) {
 			month = m;
 		}
 		else {
 			cout << "Некоректний місяць. Значення за замовченням.\n";
 		}
-		}
+	}
 	void setYear(int y) {
 		if (isValidDate(day, month, y)) {
 			year = y;
@@ -73,7 +73,26 @@ public:
 		}
 	}
 
+	int getDay() const {
+		return day;
+	}
 
+	int getMonth() const {
+		return month;
+	}
+
+	int getYear() const {
+		return year;
+	}
+
+	void printformat1() const {
+		string months[12] = { "січня","лютого","березня","квітня","травня","червня","липня","серпня","вересня","жовтня","листопада","грудня" };
+		cout << day << " " << months[month - 1] << " " << year << " року\n";
+	}
+	void printformat2() const {
+		cout << (day < 10 ? "0" : "") << day << "." << (month < 10 ? "0" : "") << month << "." << year << endl;
+	}
+};
 int mainExample1()
 {
 	Icosahedron obj;
