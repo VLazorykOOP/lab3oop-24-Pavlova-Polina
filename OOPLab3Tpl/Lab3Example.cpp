@@ -18,6 +18,33 @@ private:
 public: 
 	Date(): day(1), month(1), year(2000) {}
 
+	Date(int d, int m, int y) {
+		if (isValidDate(d, m, y)) {
+			day = d;
+			month = m;
+			year = y;
+		}
+		else {
+			cout << "Некоректна дата. Буде застосовано значення за замовчуванням.\n";
+			day = 1;
+			month = 1;
+			year = 2000;
+		}
+	}
+
+	bool isValidDate(int d, int m, int y) {
+		if (m < 1 || m>12) return false;
+		if (d < 1 || d>31) return false;
+		if (m == 4 || m == 6 || m == 9 || m == 11) {
+			return(d <= 30);
+		}
+		else if (m == 2) {
+			if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
+				return (d<=29)
+			}
+		}
+	}	
+		
 };
 int mainExample1()
 {
