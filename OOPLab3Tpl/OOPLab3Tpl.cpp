@@ -101,7 +101,7 @@ public:
     Vector(const Vector& other); // Конструктор копіювання
     Vector& operator=(const Vector& other); // Оператор присвоєння
     ~Vector() {                            //деструктор
-        delete[] data;
+       if(data!=nullptr) delete[] data;
         --count;
     }
     void Output();  // Виведення вектора на екран
@@ -136,17 +136,7 @@ public:
         }
         return true;
     }
-    bool operator<(const Vector& other) const {
-        if (size != other.size) {
-            return false;
-        }
-        for (int i = 0; i < size; ++i) {
-            if (data[i] >= other.data[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
+    bool operator<(const Vector& other) const ;
     bool operator==(const Vector& other) const {
         if (size != other.size) {
             return false;
@@ -160,6 +150,17 @@ public:
     }
 };
 int Vector::count = 0;                           //скидання лічильника 
+bool Vector::operator<(const Vector& other) const {
+        if (size != other.size) {
+            return false;
+        }
+        for (int i = 0; i < size; ++i) {
+            if (data[i] >= other.data[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 Vector::Vector(int s) : data(new int[s]), size(s), state(count) {                 //конструктор з одним параметром ( розмір вектора)
     ++count;
